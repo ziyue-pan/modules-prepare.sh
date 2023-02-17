@@ -9,12 +9,11 @@ make $@
 RELEASE=`awk 'END {print $NF}' include/generated/utsrelease.h`
 RELEASE=${RELEASE:1:-1}
 HEADER_DIR="linux-headers-$RELEASE"
-echo $RELEASE $HEADER_DIR
 
 
 # copy and clean source file
 mkdir -p $HEADER_DIR
-rsync -au --delete --exclude="$HEADER_DIR" --exclude="*.cmd" --exclude="*.dtb" --exclude="*.a" --exclude="*.ko" --exclude="*.o" --exclude="build.sh". $HEADER_DIR
+rsync -au --delete --exclude="$HEADER_DIR" --exclude="*.cmd" --exclude="*.dtb" --exclude="*.a" --exclude="*.ko" --exclude="*.o" --exclude="prepare.sh" . $HEADER_DIR
 cd $HEADER_DIR 
 make mrproper
 cp ../.config .
