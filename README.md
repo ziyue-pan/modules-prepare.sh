@@ -7,20 +7,19 @@ This tiny script helps you generate kernel development headers with ease. It det
 Put `prepare.sh` under linux source code directory:
 
 ```bash
-$ cd linux-x.x.x
-$ wget https://raw.githubusercontent.com/PAN-Ziyue/modules-prepare.sh/main/prepare.sh
+wget https://raw.githubusercontent.com/PAN-Ziyue/modules-prepare.sh/main/prepare.sh && chmod +x prepare.sh
 ```
 
 Create configuration
 
 ```bash
-$ make defconfig
+make defconfig
 ```
 
 Excute `prepare.sh` with parameters:
 
 ```bash
-$ ./prepare.sh -j$(nproc)
+./prepare.sh -j$(nproc)
 ```
 
 Results:
